@@ -15,14 +15,14 @@ inventory_df = pd.read_csv(CSV_PATH)
 supplier_choices = ["All"] + sorted(inventory_df["Supplier"].unique())
 
 # -------------------- UI Layout --------------------
-ui.page_opts(title="Inventory Monitor Dashboard", fillable=True)
+ui.page_opts(title="Inventory Monitor Dashboard by Kiruthikaa", fillable=True)
 
 with ui.sidebar(open="open"):
     ui.input_select("supplier", "Filter by Supplier", choices=supplier_choices, selected="All")
     ui.input_slider("min_stock", "Minimum Quantity to Show", min=0, max=100, value=10)
     ui.hr()
     ui.markdown(f"Auto-refresh every {UPDATE_INTERVAL_SECS} seconds.")
-
+   
     @output
     @render.ui
     def refresh_status():
